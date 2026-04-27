@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: backend-service
+          uri: http://13.63.68.207:9999/
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
